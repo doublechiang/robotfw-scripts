@@ -28,7 +28,7 @@ Inband update BMC then test for OOB ipmitool command
 
 *** Keywords ***
 ssh update bmc
-	${rc}	${output}=	Run And Return Rc And Output	sshpass -p root ssh root@${UUTHOST} 's5sfs5sgv37711/linux-pc.sh s5sfs5sgv37711/rom.ima_enc'
+	${rc}	${output}=	Run And Return Rc And Output	sshpass -p root ssh -o StrictHostKeyChecking=no root@${UUTHOST} 's5sfs5sgv37711/linux-pc.sh s5sfs5sgv37711/rom.ima_enc'
 	log		${output}
 	Should Be Equal as Integers		${rc}	0
 
